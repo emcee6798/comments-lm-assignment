@@ -10,11 +10,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Known issues
 
-None as of now
+None,as of now
 
-## Future Improvements
+## Possible future improvements
 
-- Collapsible comment replies
+- Collapse and expand parent comment replies
 - User authentication and authorization
 - RBAC
 - UX improvements
