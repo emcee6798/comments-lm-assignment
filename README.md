@@ -10,7 +10,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Known issues
 
-None,as of now
+None, as of now.
 
 ## Possible future improvements
 
