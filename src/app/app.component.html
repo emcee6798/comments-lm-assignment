@@ -1,0 +1,10 @@
+<div class="header">
+  <nav class="container header-container">
+    <a href="https://www.lightmetrics.co" title="LightMetrics Inc - LightMetrics Logo" class="bg-props logo-container" target="_blank"></a>
+    <span class="app-name">Comments</span>
+  </nav>
+</div>
+<div class="container comments-container">
+  <app-add-comments #addComments class="children left-child" (newCommentEvent)="handleNewComment($event)" (resetEvent)="handleReset()"></app-add-comments>
+  <app-comment-list-view class="children right-child" [comments]="comments" [isLoading]="isLoading" (deleteComment)="handleDelete($event)" (editComment)="handleEditComment($event)" (replyComment)="handleReplyComment($event)"></app-comment-list-view>
+</div>

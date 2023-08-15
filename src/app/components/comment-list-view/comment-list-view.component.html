@@ -1,0 +1,48 @@
+<ng-container *ngIf="isLoading">
+  <div class="loader">
+    <p>Loading...</p>
+  </div>
+</ng-container>
+<ng-container *ngIf="!isLoading">
+  <div class="subtitle">Comments List</div>
+  <ng-container *ngIf="comments.length; else noComment">
+    <div class="comments-list">
+      <ng-container *ngFor="let comment of comments; let i = index">
+        <ng-container [ngTemplateOutlet]="eachComment" [ngTemplateOutletContext]="{comment: comment, lastElem: i === comments.length-1, i: i, childComment: false}"></ng-container>
+        <ng-container *ngIf="comment.children && comment.children.length">
+          <ng-container *ngFor="let child of comment.children; let j = index">
+            <ng-container [ngTemplateOutlet]="eachComment" [ngTemplateOutletContext]="{comment: child, lastElem: j === comment.children.length-1, i: j, childComment: true, parentIndex: i, lastParent: i === comments.length-1}"></ng-container>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </div>
+  </ng-container>
+  <ng-template #noComment>
+    <div class="loader">
+      <p>No Comments</p>
+    </div>
+  </ng-template>
+</ng-container>
+
+<ng-template #eachComment let-comment="comment" let-lastElem="lastElem" let-index="i" let-childComment="childComment" let-parentIndex="parentIndex" let-lastParent="lastParent">
+  <div class="comment-card" [ngClass]="{'child-comment': childComment}">
+    <div class="user-image-container"><span class="mask-props user-image"></span></div>
+    <div class="comment-content">
+      <div class="author-timestamp">
+        <span class="comment-author">{{comment.author.name}}</span>
+        <span class="created-time-stamp"><strong>Added:&nbsp;</strong>{{comment.createdOn | date:'d MMMM y h:mma'}}</span>
+      </div>
+      <div class="comment-text">{{comment.commentText}}</div>
+      <div class="actions">
+        <span (click)="editCommentHandler(index)" *ngIf="!childComment">Edit</span>
+        <span (click)="deleteCommentHandler(false, index, comment._id, parentIndex)">
+          <ng-container *ngIf="deleteCommentId !== comment._id">Delete</ng-container>
+          <ng-container *ngIf="deleteCommentId === comment._id">Delete? Confirm</ng-container>
+        </span>
+        <span *ngIf="deleteCommentId === comment._id" (click)="deleteCommentHandler(true)">Cancel</span>
+        <span (click)="replyCommentHandler(index)" *ngIf="!childComment">Reply</span>
+      </div>
+    </div>
+  </div>
+  <hr *ngIf="(!lastElem && !comment.children.length && !childComment) || (childComment && lastElem && !lastParent)" />
+</ng-template>

@@ -1,0 +1,108 @@
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.loader p {
+  font-size: 2rem;
+}
+
+.comment-card {
+  --5-rem: 5rem;
+  min-height: var(--5-rem);
+  display: flex;
+}
+
+.comment-card.child-comment {
+  margin-left: var(--5-rem);
+}
+
+.comments-list {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  padding: 1rem 0;
+  overflow-y: auto;
+}
+
+.comments-list > hr {
+  border-block-color: #999;
+  border-block-end-style: none;
+  margin: var(--half-rem) 1rem;
+}
+
+.comment-card > .user-image-container {
+  height: var(--5-rem);
+  width: var(--5-rem);
+  padding: var(--half-rem);
+}
+
+.comment-card > .user-image-container > .user-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  mask-image: url('../../../assets/user.svg');
+  background-color: var(--primary-color);
+}
+
+.comment-card > .comment-content {
+  width: calc(100% - var(--5-rem));
+  padding: var(--half-rem) 1rem var(--half-rem) 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-card > .comment-content > .author-timestamp {
+  display: flex;
+  line-height: 0.75rem;
+  margin-bottom: var(--half-rem);
+}
+
+.comment-card > .comment-content > .author-timestamp > .comment-author {
+  color: #c300d0;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.comment-card > .comment-content > .author-timestamp > .created-time-stamp {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  font-size: 0.75rem;
+}
+
+.comment-card > .comment-content > .author-timestamp > .created-time-stamp > strong {
+  font-size: 0.75rem;
+}
+
+.comment-card > .comment-content > .comment-text {
+  margin-bottom: var(--half-rem);
+  overflow-wrap: break-word;
+}
+
+.comment-card > .comment-content > .actions {
+  display: flex;
+  grid-column-gap: var(--half-rem);
+  font-weight: bold;
+}
+
+.comment-card > .comment-content > .actions > span {
+  color: #00778c;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.75rem;
+}
+
+.comment-card > .comment-content > .actions > span:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 256px) {
+  .comment-card > .comment-content > .author-timestamp {
+    display: block;
+  }
+
+  .comment-card > .comment-content > .author-timestamp > .created-time-stamp {
+    margin-top: 0.5rem;
+  }
+}

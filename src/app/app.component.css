@@ -1,0 +1,62 @@
+:host {
+  --titlebar-height: 4.5rem;
+  --page-max-width: 75rem;
+}
+
+.header {
+  width: 100%;
+  height: var(--titlebar-height);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.container {
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+}
+
+nav.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding: 0 1rem;
+}
+
+span.app-name {
+  font-size: 1.5rem;
+  font-weight: 750;
+}
+
+nav.header-container .logo-container {
+  display: inline-block;
+  height: 100%;
+  background-image: url("../assets/lm-logo.svg");
+  width: 10rem;
+}
+
+.comments-container {
+  --comments-col-gap: 0.75rem;
+  --left-child-width: 40%;
+  --half-rem: 0.5rem;
+  display: flex;
+  grid-column-gap: var(--comments-col-gap);
+  height: calc(100% - var(--titlebar-height));
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.comments-container .children {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: var(--half-rem);
+  grid-row-gap: var(--half-rem);
+}
+
+.comments-container .children.left-child {
+  width: var(--left-child-width);
+}
+
+.comments-container .children.right-child {
+  width: calc(100% - var(--left-child-width) - var(--comments-col-gap));
+}

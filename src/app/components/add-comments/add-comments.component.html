@@ -1,0 +1,21 @@
+<div class="subtitle">
+  <ng-container *ngIf="editCommentObj === null && replyCommentObj === null">Add New</ng-container>
+  <ng-container *ngIf="editCommentObj !== null">Edit</ng-container>
+  <ng-container *ngIf="replyCommentObj !== null">Replying to {{replyCommentObj.author.name | uppercase}}'s</ng-container>
+  Comment
+</div>
+<form [formGroup]="newCommentForm" (ngSubmit)="addCommentToCollection()" id="newCommentForm">
+  <div class="input-container">
+    <label for="userName">Name<span>*</span></label>
+    <input type="text" id="userName" autofocus placeholder="Enter your name" formControlName="name" (input)="enableSubmitButton()">
+  </div>
+  <div class="input-container">
+    <label for="commentText">Comment<span>*</span>
+      <ins>(max. 280 characters)</ins>
+    </label>
+    <input type="text" id="commentText" maxlength="280" placeholder="Enter comment" formControlName="comment" (input)="enableSubmitButton()">
+  </div>
+  <span>* - Required Fields</span>
+  <button class="form-buttons primary" type="submit" [ngClass]="{'disabled': disableSubmit}" [disabled]="disableSubmit">Submit</button>
+  <button class="form-buttons secondary" type="reset" (click)="resetForm()">Reset</button>
+</form>

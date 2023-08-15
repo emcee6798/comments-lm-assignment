@@ -1,0 +1,107 @@
+@font-face {
+  font-family: "AB Gilroy";
+  font-weight: 500;
+  src: url(https://unpkg.com/@abds/styles@3.2.2/src/fonts/abgilroy-medium-webfont.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Barlow";
+  font-weight: 250;
+  src: url(https://fonts.gstatic.com/s/barlow/v12/7cHpv4kjgoGqM7E_DMs5.woff2) format("woff2");
+}
+
+:root {
+  --primary-color: #333;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: "Barlow", "AB Gilroy", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  color: var(--primary-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+html,
+body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.mask-props {
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  mask-position: center;
+}
+
+.bg-props {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.subtitle {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.text-ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@media (max-width: 2160px) {
+
+  *,
+  *::before,
+  *::after {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 960px) {
+
+  *,
+  *::before,
+  *::after {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  *,
+  *::before,
+  *::after {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  *,
+  *::before,
+  *::after {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  *,
+  *::before,
+  *::after {
+    font-size: 6px;
+  }
+}
