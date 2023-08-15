@@ -1,7 +1,7 @@
 <div class="subtitle">
   <ng-container *ngIf="editCommentObj === null && replyCommentObj === null">Add New</ng-container>
-  <ng-container *ngIf="editCommentObj !== null">Edit</ng-container>
-  <ng-container *ngIf="replyCommentObj !== null">Replying to {{replyCommentObj.author.name | uppercase}}'s</ng-container>
+  <ng-container *ngIf="editCommentObj !== null && replyCommentObj === null">Edit</ng-container>
+  <ng-container *ngIf="editCommentObj === null && replyCommentObj !== null">Replying to {{replyCommentObj.author.name | uppercase}}'s</ng-container>
   Comment
 </div>
 <form [formGroup]="newCommentForm" (ngSubmit)="addCommentToCollection()" id="newCommentForm">

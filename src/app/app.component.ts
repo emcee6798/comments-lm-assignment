@@ -61,6 +61,7 @@ export class AppComponent {
   }
 
   handleDelete(e: any) {
+    this.addComments.resetForm();
     if (e.parentIndex !== -1) {
       this.comments[e.parentIndex].children.splice(e.index, 1);
     } else {
@@ -70,14 +71,14 @@ export class AppComponent {
   }
 
   handleEditComment(index: any) {
-    this.replyCmntObj = null;
+    this.addComments.resetForm();
     this.editIndex = index;
     this.editCmntObj = this.comments[index];
     this.addComments.setEditObjValue(this.editCmntObj);
   }
 
   handleReplyComment(index: any) {
-    this.editCmntObj = null;
+    this.addComments.resetForm();
     this.replyIndex = index;
     this.replyCmntObj = this.comments[index];
     this.addComments.setReplyObjValue(this.replyCmntObj);
