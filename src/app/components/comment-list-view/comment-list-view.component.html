@@ -40,7 +40,7 @@
           <ng-container *ngIf="deleteCommentId === comment._id">Delete? Confirm</ng-container>
         </span>
         <span *ngIf="deleteCommentId === comment._id" (click)="deleteCommentHandler(true)">Cancel</span>
-        <span (click)="replyCommentHandler(index)" *ngIf="!childComment">Reply</span>
+        <span (click)="replyCommentHandler(childComment ? parentIndex : index)">Reply</span>
       </div>
     </div>
   </div>
